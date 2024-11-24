@@ -1,0 +1,112 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 37px;
+  margin-bottom: 69px;
+  margin-top: -37px;
+}
+
+.pricing-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.plan-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.pro-card:hover {
+  box-shadow: 0 8px 16px rgba(52, 152, 219, 0.6);
+}
+
+
+.pro-highlight {
+  border: 2px solid #3498DB;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+}
+
+.plan-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.plan-price {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.plan-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.signup-btn {
+  background-color: #2ECC71;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+}
+
+.signup-btn:hover {
+  background-color: #27ae60;
+}
+@keyframes highlightEffect {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.pro-highlight {
+  border: 2px solid #3498DB;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.4);
+  animation: highlightEffect 1s ease-in-out infinite alternate;
+}
+
+
+@media screen and (max-width: 600px) {
+  .pricing-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

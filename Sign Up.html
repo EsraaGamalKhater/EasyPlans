@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+    .flex {
+      display: flex;
+    }
+    .flex-col {
+      flex-direction: column;
+    }
+    .justify-center {
+      justify-content: center;
+    }
+    .items-center {
+      align-items: center;
+    }
+    .font-sans {
+      font-family: sans-serif;
+    }
+    .bg-white {
+      background-color: #fff;
+    }
+    .md\:h-screen {
+      height: 100vh;
+    }
+    .shadow- {
+      box-shadow: 0 2px 13px -6px rgba(0,0,0,0.4);
+    }
+    .rounded-xl {
+      border-radius: 1rem;
+    }
+    .overflow-hidden {
+      overflow: hidden;
+    }
+    .grid {
+      display: grid;
+    }
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .items-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .gap-y-8 {
+      gap: 2rem;
+    }
+    .max-w-7xl {
+      max-width: 1280px;
+    }
+    .w-full {
+      width: 100%;
+    }
+    .m-6 {
+      margin: 1.5rem;
+    }
+
+    .lg{
+      max-width: 90%;
+    }
+    .object-contain {
+      object-fit: contain;
+    }
+    .block {
+      display: block;
+    }
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-control {
+      padding: 0.875rem;
+      font-size: 0.875rem;
+      border-radius: 0.75rem;
+      border: 2px solid #ccc;
+      outline: none;
+      width: 100%;
+    }
+
+    .bg-transparent {
+      background-color: transparent;
+    }
+
+    .text-gray-800 {
+      color: #333;
+    }
+
+    .focus\:border-blue-500:focus {
+      border-color: #3498db;
+    }
+
+    .d-block {
+      display: block;
+    }
+    .form-control:disabled {
+      background-color: #ccc;
+    }
+    .btn {
+      background-color: #66b2b4;
+      color: white;
+      border: none;
+      padding: 0.875rem 1.5rem;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      width: 75%;
+      margin: auto;
+    }
+    .btn:disabled {
+      background-color: #aaa;
+    }
+    .btn:hover {
+      background-color: #66b2b4; 
+    }
+
+    .text-danger {
+      color: red;
+      font-size: 0.875rem;
+    }
+    @media (max-width: 768px) {
+      .md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+      }
+      .lg{
+        max-width: 100%;
+      }
+    
+      .form-control {
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+      }
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+      .m-6 {
+        margin: 1rem;
+      }
+      .gap-y-8 {
+        gap: 1.5rem;
+      }
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div id="alertContainer" class="w-100 mt-3">
+    <div id="successAlert" class="alert alert-success" role="alert" style="display: none;">
+      Registration successful! Welcome.
+    </div>
+    <div id="failureAlert" class="alert alert-danger" role="alert" style="display: none;">
+      Registration failed! Please check the following:<br>
+      <ul id="errorMessages"></ul>
+    </div>
+  </div>
+
+  <div class="flex flex-col justify-center items-center font-sans bg-white md:h-screen">
+    <div class="grid md:grid-cols-2 items-center gap-y-8 max-w-7xl w-full shadow-[0_2px_13px_-6px_rgba(0,0,0,0.4)] m-6 rounded-xl relative overflow-hidden">
+      
+      
+      <div class="max-md:order-1 p-4 bg-gray-50 h-full">
+        <img class="lg:max-w-[90%] w-full h-full object-contain block mx-auto" src="https://readymadeui.com/signin-image.webp" alt="phone">
+      </div>
+      
+    
+      <div class="flex items-center p-6 max-w-md w-full h-full mx-auto">
+        <form id="signupForm" class="w-full" onsubmit="return validateForm()">
+          <div class="mb-12 text-center">
+            <h3 class="text-[#66b2b4] lg:text-3xl text-2xl font-extrabold">Create Account</h3>
+          </div>
+
+          <div class="p-3">
+            <input id="name" class="form-control w-full bg-transparent text-sm text-gray-800 border-2 focus:border-blue-500 pl-4 pr-12 py-3.5 outline-none rounded-xl" type="text" placeholder="Name" required>
+          </div>
+
+          <div class="p-3">
+            <input id="email" class="form-control w-full bg-transparent text-sm text-gray-800 border-2 focus:border-blue-500 pl-4 pr-12 py-3.5 outline-none rounded-xl" type="email" placeholder="Email" required>
+          </div>
+
+          <div class="p-3">
+            <input id="phone" class="form-control w-full bg-transparent text-sm text-gray-800 border-2 focus:border-blue-500 pl-4 pr-12 py-3.5 outline-none rounded-xl" type="tel" placeholder="Phone" required>
+          </div>
+
+          <div class="p-3">
+            <input id="password" class="form-control w-full bg-transparent text-sm text-gray-800 border-2 focus:border-blue-500 pl-4 pr-12 py-3.5 outline-none rounded-xl" type="password" placeholder="Password" required>
+          </div>
+
+          <div class="p-3">
+            <input id="confirmPassword" class="form-control w-full bg-transparent text-sm text-gray-800 border-2 focus:border-blue-500 pl-4 pr-12 py-3.5 outline-none rounded-xl" type="password" placeholder="Confirm Password" required>
+          </div>
+
+          <br>
+          <button type="submit" class="btn">Create Account</button>
+        </form>
+      </div>
+
+      <div class="absolute -top-6 -right-6 w-20 h-20 rounded-full bg-[#66b2b4] max-sm:hidden"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function validateForm() {
+      let isValid = true;
+      let errorMessages = [];
+
+      // Name validation
+      const name = document.getElementById('name').value;
+      if (name.length < 2 || name.length > 50) {
+        isValid = false;
+        errorMessages.push("Name must be between 2 and 50 characters.");
+      }
+
+      // Email validation
+      const email = document.getElementById('email').value;
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zAZ]{2,6}$/;
+      if (!emailRegex.test(email)) {
+        isValid = false;
+        errorMessages.push("Invalid email format.");
+      }
+
+      // Phone validation
+      const phone = document.getElementById('phone').value;
+      if (phone.length < 10) {
+        isValid = false;
+        errorMessages.push("Phone number must be at least 10 digits.");
+      }
+
+      // Password validation
+      const password = document.getElementById('password').value;
+      if (password.length < 6 || password.length > 20) {
+        isValid = false;
+        errorMessages.push("Password must be between 6 and 20 characters.");
+      }
+
+      // Confirm Password validation
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      if (confirmPassword !== password) {
+        isValid = false;
+        errorMessages.push("Passwords do not match.");
+      }
+
+      if (isValid) {
+        document.getElementById('failureAlert').style.display = 'none';
+        document.getElementById('successAlert').style.display = 'block';
+      } else {
+        document.getElementById('successAlert').style.display = 'none';
+        document.getElementById('failureAlert').style.display = 'block';
+        document.getElementById('errorMessages').innerHTML = errorMessages.map(msg => `<li>${msg}</li>`).join('');
+      }
+
+      return false;  
+    }
+  </script>
+</body>
+</html>

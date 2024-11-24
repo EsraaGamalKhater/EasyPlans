@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyPlans Pricing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- إضافة رابط الخط -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>EasyPlans Pricing</h1>
+    <div class="pricing-container">
+      <div class="plan-card">
+        <h2 class="plan-title">Basic</h2>
+        <p class="plan-price">$10/month</p>
+        <p class="plan-description">Essential tools for individuals.</p>
+        <a href="Sign Up.html "target="_blank"><button class="signup-btn">Sign Up</button></a>
+
+      </div>
+      <div class="plan-card pro-card">
+        <h2 class="plan-title">Pro</h2>
+        <p class="plan-price">$20/month</p>
+        <p class="plan-description">Advanced tools for small teams.</p>
+        <a href="Sign Up.html "target="_blank"><button class="signup-btn">Sign Up</button></a>
+
+      </div>
+      <div class="plan-card">
+        <h2 class="plan-title">Premium</h2>
+        <p class="plan-price">$30/month</p>
+        <p class="plan-description">All features for large businesses.</p>
+        <a href="Sign Up.html "target="_blank"><button class="signup-btn">Sign Up</button></a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const proCard = document.querySelector('.pro-card');
+      proCard.classList.add('pro-highlight');
+    };
+  </script>
+</body>
+</html>
